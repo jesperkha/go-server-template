@@ -14,9 +14,10 @@ func main() {
 	notif := notifier.New()
 
 	config := config.Load()
-	server := server.New(config)
+	s := server.New(config)
+	s.Use(server.Logger)
 
-	go server.ListenAndServe(notif)
+	go s.ListenAndServe(notif)
 
 	notif.NotifyOnSignal(os.Interrupt, syscall.SIGTERM)
 	log.Println("shutdown")
