@@ -26,3 +26,9 @@ go.work.sum
 
 # air temp dir
 tmp
+
+# temp service files
+*.service
+
+# Build directory
+build
