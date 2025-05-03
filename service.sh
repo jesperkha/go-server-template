@@ -1,8 +1,13 @@
 #!/bin/bash
 
+# Setup script for minimal daemon config file
+
 set -e
 
-read -p "Service name (executable): " name
+defaultName=$(basename "$PWD")
+read -p "Service name [$defaultName]: " name
+name="${name:-$defaultName}"
+
 read -p "Description: " description
 
 serviceFile=$name.service
